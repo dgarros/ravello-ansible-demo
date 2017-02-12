@@ -1,0 +1,43 @@
+
+ravello_topology:
+  leaf1:
+    - link: dhcp-public
+      services: [ ssh, icmp ]
+    - link: 91    # To PFE
+    - link: 81    # Reserved
+    - link: 11    # Spine1
+    - link: 12    # Spine2
+
+  leaf2:
+    - link: dhcp-public
+      services: [ ssh, icmp ]
+    - link: 92
+    - link: 82    # Reserved
+    - link: 13
+    - link: 14
+
+  leaf3:
+    - link: dhcp-public
+      services: [ ssh, icmp ]
+    - link: 93
+    - link: 83    # Reserved
+    - link: 15    # Spine1
+    - link: 16    # Spine2
+
+  spine1:
+    - link: dhcp-public
+      services: [ ssh, icmp ]
+    - link: 94
+    - link: 84    # Reserved
+    - link: 11    # Leaf1
+    - link: 13    # Leaf2
+    - link: 15    # Leaf3
+
+  spine2:
+    - link: dhcp-public
+      services: [ ssh, icmp ]
+    - link: 95    # To PFE
+    - link: 85    # Reserved
+    - link: 12    # Leaf1
+    - link: 14    # Leaf2
+    - link: 16    # Leaf3

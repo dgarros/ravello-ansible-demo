@@ -1,0 +1,21 @@
+---
+- name: Collect Show Version on all devices
+  connection: local
+  hosts: all
+  gather_facts: no
+  vars:
+    netconf:
+      host: "{{ ansible_ssh_host }}"
+      username: "{{ ansible_ssh_username }}"
+      password: "{{ ansible_ssh_password }}"
+      port: "{{ junos_port }}"
+  tasks:
+    - name: "Execute Show version"
+      junos_command:
+        commands:
+          - show version
+        format: text
+        provider: "{{ netconf }}"
+      register: version
+
+    - debug: var=version.stdout_lines
