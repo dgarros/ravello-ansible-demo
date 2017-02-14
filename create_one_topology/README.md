@@ -12,7 +12,29 @@ The vqfx image must be named `vqfx10k-re-15.1X53-D60`
 
 > you can [request access to a vqfx image here](http://www.juniper.net/us/en/dm/free-vqfx-trial/)
 
-# Define Ravello_credential
+# Define Ravello Credentials
 
-You must define your ravello Credential with the variables `ravello_login_username` and `ravello_login_password`.   
+You must define your ravello Credentials with the variables `ravello_login_username` and `ravello_login_password`.   
 You can define them either in the inventory file or in any variables files
+
+# Get started
+
+Create the topoloyg on Ravello
+```
+make create
+```
+
+Deploy the topology on Ravello
+```
+make deploy
+```
+
+Once deployed, download FQDN of each VMs
+```
+make fqdn
+```
+
+Once All VMs are running, execute and gather show version
+```
+make get-version
+```
